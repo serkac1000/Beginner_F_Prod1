@@ -1,0 +1,25 @@
+# MIT App Inventor Project: BeginnerF - Firebase Authentication Login
+
+This document provides instructions for creating a MIT App Inventor project with Firebase Authentication login functionality.
+
+## Project Configuration
+
+1. Open MIT App Inventor (https://ai2.appinventor.mit.edu/)
+2. Create a new project named "BeginnerF"
+3. Follow the instructions in the Designer View and Blocks View sections to complete the project
+
+## Firebase Configuration
+
+The project uses the following Firebase API key:
+- API Key: AIzaSyCm4ar4j9mY6KwSDRSToTQelzbSus7VpuA
+
+The project is configured to use the Firebase Authentication REST API endpoint:
+- https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCm4ar4j9mY6KwSDRSToTQelzbSus7VpuA
+
+## Testing
+
+Test the application with the following credentials:
+- Email: wserkac103@gmail.com
+- Password: !Trener!
+
+The app should display a success notification when the login is successful, and an error notification when the login fails.

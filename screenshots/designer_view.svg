@@ -1,0 +1,94 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f5f5f5"/>
+  
+  <!-- MIT App Inventor Designer View -->
+  <rect x="10" y="10" width="780" height="580" fill="#ffffff" stroke="#cccccc" stroke-width="2"/>
+  
+  <!-- Top Menu Bar -->
+  <rect x="10" y="10" width="780" height="40" fill="#4285f4"/>
+  <text x="30" y="35" font-family="Arial" font-size="16" fill="white">MIT App Inventor - BeginnerF</text>
+  <rect x="650" y="20" width="60" height="20" rx="5" fill="white"/>
+  <text x="660" y="35" font-family="Arial" font-size="12" fill="#4285f4">Blocks</text>
+  
+  <!-- Left Panel (Palette) -->
+  <rect x="10" y="50" width="150" height="540" fill="#eeeeee" stroke="#cccccc" stroke-width="1"/>
+  <text x="15" y="70" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Palette</text>
+  
+  <rect x="15" y="80" width="140" height="30" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="25" y="100" font-family="Arial" font-size="12" fill="#333333">User Interface</text>
+  
+  <rect x="15" y="115" width="140" height="30" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="25" y="135" font-family="Arial" font-size="12" fill="#333333">Layout</text>
+  
+  <rect x="15" y="150" width="140" height="30" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="25" y="170" font-family="Arial" font-size="12" fill="#333333">Media</text>
+  
+  <rect x="15" y="185" width="140" height="30" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="25" y="205" font-family="Arial" font-size="12" fill="#333333">Drawing and Animation</text>
+  
+  <rect x="15" y="220" width="140" height="30" rx="5" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  <text x="25" y="240" font-family="Arial" font-size="12" fill="#333333">Connectivity</text>
+  
+  <!-- Middle Panel (Viewer) -->
+  <rect x="160" y="50" width="320" height="540" fill="#ffffff" stroke="#cccccc" stroke-width="1"/>
+  
+  <!-- Phone Simulator -->
+  <rect x="220" y="70" width="200" height="400" rx="10" fill="#eeeeee" stroke="#555555" stroke-width="2"/>
+  <rect x="230" y="100" width="180" height="320" fill="#ffffff" stroke="#aaaaaa" stroke-width="1"/>
+  
+  <!-- Login UI Elements -->
+  <text x="270" y="140" font-family="Arial" font-size="16" font-weight="bold" fill="#333333">Firebase Login</text>
+  
+  <rect x="250" y="180" width="140" height="30" rx="5" fill="#f8f8f8" stroke="#aaaaaa" stroke-width="1"/>
+  <text x="255" y="200" font-family="Arial" font-size="12" fill="#777777">Enter your email</text>
+  
+  <rect x="250" y="220" width="140" height="30" rx="5" fill="#f8f8f8" stroke="#aaaaaa" stroke-width="1"/>
+  <text x="255" y="240" font-family="Arial" font-size="12" fill="#777777">Enter your password</text>
+  
+  <rect x="270" y="270" width="100" height="30" rx="5" fill="#4285f4" stroke="#2265d4" stroke-width="1"/>
+  <text x="305" y="290" font-family="Arial" font-size="12" fill="white">Login</text>
+  
+  <!-- Right Panel (Components) -->
+  <rect x="480" y="50" width="310" height="540" fill="#eeeeee" stroke="#cccccc" stroke-width="1"/>
+  <text x="485" y="70" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Components</text>
+  
+  <rect x="485" y="80" width="300" height="25" fill="#dddddd"/>
+  <text x="490" y="97" font-family="Arial" font-size="12" fill="#333333">Screen1</text>
+  
+  <rect x="485" y="105" width="300" height="25" fill="#ffffff"/>
+  <text x="505" y="122" font-family="Arial" font-size="12" fill="#333333">LoginContainer</text>
+  
+  <rect x="485" y="130" width="300" height="25" fill="#ffffff"/>
+  <text x="520" y="147" font-family="Arial" font-size="12" fill="#333333">TitleLabel</text>
+  
+  <rect x="485" y="155" width="300" height="25" fill="#ffffff"/>
+  <text x="520" y="172" font-family="Arial" font-size="12" fill="#333333">EmailTextBox</text>
+  
+  <rect x="485" y="180" width="300" height="25" fill="#ffffff"/>
+  <text x="520" y="197" font-family="Arial" font-size="12" fill="#333333">PasswordTextBox</text>
+  
+  <rect x="485" y="205" width="300" height="25" fill="#ffffff"/>
+  <text x="520" y="222" font-family="Arial" font-size="12" fill="#333333">LoginButton</text>
+  
+  <rect x="485" y="230" width="300" height="25" fill="#ffffff"/>
+  <text x="505" y="247" font-family="Arial" font-size="12" fill="#333333">Notifier1</text>
+  
+  <rect x="485" y="255" width="300" height="25" fill="#ffffff"/>
+  <text x="505" y="272" font-family="Arial" font-size="12" fill="#333333">Web1</text>
+  
+  <!-- Properties Panel -->
+  <text x="485" y="300" font-family="Arial" font-size="14" font-weight="bold" fill="#333333">Properties</text>
+  
+  <rect x="485" y="320" width="300" height="25" fill="#ffffff"/>
+  <text x="490" y="337" font-family="Arial" font-size="12" fill="#333333">TextAlignment: Center</text>
+  
+  <rect x="485" y="345" width="300" height="25" fill="#ffffff"/>
+  <text x="490" y="362" font-family="Arial" font-size="12" fill="#333333">FontSize: 24</text>
+  
+  <rect x="485" y="370" width="300" height="25" fill="#ffffff"/>
+  <text x="490" y="387" font-family="Arial" font-size="12" fill="#333333">FontBold: True</text>
+  
+  <rect x="485" y="395" width="300" height="25" fill="#ffffff"/>
+  <text x="490" y="412" font-family="Arial" font-size="12" fill="#333333">Width: Fill parent</text>
+</svg>

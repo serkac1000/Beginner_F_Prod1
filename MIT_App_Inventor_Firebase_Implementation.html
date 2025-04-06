@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIT App Inventor Firebase Implementation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #4285f4;
+            border-bottom: 2px solid #4285f4;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #4285f4;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #666;
+            margin-top: 20px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: Consolas, monospace;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .step {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .note {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .component {
+            margin-bottom: 20px;
+        }
+        .property {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>MIT App Inventor: Firebase Authentication Implementation</h1>
+    
+    <h2>Overview</h2>
+    <p>This guide will walk you through implementing Firebase Authentication in MIT App Inventor. You will create a login screen that connects to Firebase's REST API for authentication.</p>
+    
+    <div class="note">
+        <strong>Note:</strong> MIT App Inventor doesn't have a direct Firebase component, so we'll use the Web component to connect to Firebase's REST API.
+    </div>
+    
+    <h2>Prerequisites</h2>
+    <ul>
+        <li>A Firebase account and project with Authentication enabled</li>
+        <li>Firebase API Key (found in your Firebase project settings)</li>
+        <li>MIT App Inventor account</li>
+    </ul>
+    
+    <h2>Step 1: Set Up Firebase Project</h2>
+    <div class="step">
+        <ol>
+            <li>Go to the <a href="https://console.firebase.google.com/" target="_blank">Firebase Console</a></li>
+            <li>Create a new project or select an existing one</li>
+            <li>Navigate to "Authentication" in the left sidebar</li>
+            <li>Enable the "Email/Password" sign-in method</li>
+            <li>Add a test user in the "Users" tab</li>
+            <li>Go to Project Settings and note your API Key</li>
+        </ol>
+    </div>
+    
+    <h2>Step 2: Design the MIT App Inventor Project</h2>
+    <div class="step">
+        <h3>Start a New Project:</h3>
+        <ol>
+            <li>Open MIT App Inventor and create a project called "BeginnerF"</li>
+        </ol>
+        
+        <h3>Add Components:</h3>
+        <div class="component">
+            <strong>1. VerticalArrangement (Main Container)</strong>
+            <div class="property">Name: <code>LoginContainer</code></div>
+            <div class="property">Width: Fill parent</div>
+            <div class="property">Height: Fill parent</div>
+            <div class="property">AlignHorizontal: Center</div>
+            <div class="property">AlignVertical: Center</div>
+        </div>
+        
+        <div class="component">
+            <strong>2. Label (Title)</strong>
+            <div class="property">Name: <code>TitleLabel</code></div>
+            <div class="property">Text: "Firebase Login"</div>
+            <div class="property">TextAlignment: Center</div>
+            <div class="property">FontSize: 24</div>
+            <div class="property">FontBold: True</div>
+            <div class="property">Width: Fill parent</div>
+        </div>
+        
+        <div class="component">
+            <strong>3. TextBox (Email Input)</strong>
+            <div class="property">Name: <code>EmailTextBox</code></div>
+            <div class="property">Hint: "Enter your email"</div>
+            <div class="property">Width: 300 pixels</div>
+            <div class="property">TextAlignment: Left</div>
+        </div>
+        
+        <div class="component">
+            <strong>4. TextBox (Password Input)</strong>
+            <div class="property">Name: <code>PasswordTextBox</code></div>
+            <div class="property">Hint: "Enter your password"</div>
+            <div class="property">PasswordVisible: True (this makes the text appear as dots)</div>
+            <div class="property">Width: 300 pixels</div>
+            <div class="property">TextAlignment: Left</div>
+        </div>
+        
+        <div class="component">
+            <strong>5. Button (Login Button)</strong>
+            <div class="property">Name: <code>LoginButton</code></div>
+            <div class="property">Text: "Login"</div>
+            <div class="property">Width: 200 pixels</div>
+            <div class="property">TextAlignment: Center</div>
+        </div>
+        
+        <div class="component">
+            <strong>6. Notifier (for feedback)</strong>
+            <div class="property">Name: <code>Notifier1</code></div>
+            <div class="property">(No visible properties to set)</div>
+        </div>
+        
+        <div class="component">
+            <strong>7. Web (for API calls)</strong>
+            <div class="property">Name: <code>Web1</code></div>
+            <div class="property">(No visible properties to set)</div>
+        </div>
+    </div>
+    
+    <h2>Step 3: Implement Login Logic in Blocks</h2>
+    <div class="step">
+        <h3>Switch to Blocks Editor:</h3>
+        <p>Click "Blocks" in the top-right corner.</p>
+        
+        <h3>Handle Login Button Click:</h3>
+        <ol>
+            <li>Use the when <code>LoginButton.Click</code> event:
+                <ul>
+                    <li>Drag the when <code>LoginButton.Click</code> block.</li>
+                    <li>Set <code>Web1.Url</code> to:
+                        <pre>https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOUR_FIREBASE_API_KEY</pre>
+                        Added with your Firebase Web API Key.
+                    </li>
+                    <li>Set <code>Web1.RequestHeaders</code> to:
+                        <pre>Content-Type: application/json</pre>
+                        (use a make a list block with make name/value pair).
+                    </li>
+                    <li>Set <code>Web1.PostText</code> to a JSON string with email and password:
+                        <pre>{"email":"[EmailTextBox.Text]","password":"[PasswordTextBox.Text]","returnSecureToken":true}</pre>
+                        Replace placeholders with <code>EmailTextBox.Text</code> and <code>PasswordTextBox.Text</code> blocks.
+                    </li>
+                    <li>Call <code>Web1.PostText</code> to send the request.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h3>Handle API Response:</h3>
+        <ol>
+            <li>Use the when <code>Web1.GotText</code> event:
+                <ul>
+                    <li>Drag the when <code>Web1.GotText</code> block.</li>
+                    <li>Check <code>responseCode</code>:
+                        <ul>
+                            <li>If = 200 (success):
+                                <ul>
+                                    <li>Parse <code>responseContent</code> (JSON) using <code>Web1.JsonTextDecode</code> to get <code>idToken</code> and <code>localId</code>.</li>
+                                    <li>Show <code>Notifier1.ShowAlert</code> with "Login Successful: " + <code>localId</code> (user ID).</li>
+                                    <li>(Optional) Store <code>idToken</code> in a variable for authenticated requests.</li>
+                                </ul>
+                            </li>
+                            <li>Else (error):
+                                <ul>
+                                    <li>Parse <code>responseContent</code> to extract the error message (e.g., "error":"INVALID_PASSWORD").</li>
+                                    <li>Show <code>Notifier1.ShowAlert</code> with "Login Failed: " + <code>responseContent</code>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+    
+    <h2>Step 4: Test the Project</h2>
+    <div class="step">
+        <h3>Register a Test User:</h3>
+        <p>In Firebase Console, manually add a user under "Authentication" > "Users".</p>
+        
+        <h3>Run the App:</h3>
+        <p>Connect via the AI2 Companion app or emulator. Enter the test email and password, click "Login," and verify the Notifier shows success or an error.</p>
+    </div>
+    
+    <h2>Common Troubleshooting</h2>
+    <div class="step">
+        <table>
+            <tr>
+                <th>Error</th>
+                <th>Solution</th>
+            </tr>
+            <tr>
+                <td>INVALID_PASSWORD</td>
+                <td>The password is incorrect. Ensure you're using the correct password for the registered email.</td>
+            </tr>
+            <tr>
+                <td>EMAIL_NOT_FOUND</td>
+                <td>The email is not registered in Firebase Authentication. Register the user first.</td>
+            </tr>
+            <tr>
+                <td>INVALID_EMAIL</td>
+                <td>The email format is invalid. Ensure the email format is correct.</td>
+            </tr>
+            <tr>
+                <td>WEB_NETWORK_ERROR</td>
+                <td>Check your internet connection and ensure the URL is correct.</td>
+            </tr>
+        </table>
+    </div>
+    
+    <h2>Additional Resources</h2>
+    <div class="step">
+        <ul>
+            <li><a href="https://ai2.appinventor.mit.edu/" target="_blank">MIT App Inventor</a></li>
+            <li><a href="https://firebase.google.com/docs/auth/web/password-auth" target="_blank">Firebase Password Authentication</a></li>
+            <li><a href="https://firebase.google.com/docs/reference/rest/auth" target="_blank">Firebase Authentication REST API Reference</a></li>
+        </ul>
+    </div>
+</body>
+</html>
