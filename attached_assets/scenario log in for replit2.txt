@@ -1,0 +1,60 @@
+Step 2: Design the MIT App Inventor Project
+Start a New Project:
+Open MIT App Inventor and create a project   BeginnerF
+
+Add Components:
+From the Palette:
+TextBox1: Rename to EmailTextBox (for email input).
+TextBox2: Rename to PasswordTextBox (for password input), set Password property to true.
+Button1: Rename to LoginButton, set text to "Login."
+Notifier1: For alerts (from User Interface).
+Web1: For API calls (from Connectivity).
+No Assets Required:
+Unlike the WebViewer method, no HTML file upload is needed.
+Step 3: Implement Login Logic in Blocks
+Switch to Blocks Editor:
+Click "Blocks" in the top-right corner.
+Handle Login Button Click:
+Use the when LoginButton.Click event:
+Drag the when LoginButton.Click block.
+Set Web1.Url to:
+text
+
+Collapse
+
+Wrap
+
+Copy
+https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCm4ar4j9mY6KwSDRSToTQelzbSus7VpuA
+Added with your Firebase Web API Key.
+Set Web1.RequestHeaders to:
+Content-Type: application/json (use a make a list block with make name/value pair).
+Set Web1.PostText to a JSON string with email and password:
+Use a join block:
+text
+
+Collapse
+
+Wrap
+
+Copy
+{"email":"[EmailTextBox.Text]","password":"[PasswordTextBox.Text]","returnSecureToken":true}
+Replace placeholders with EmailTextBox.Text and PasswordTextBox.Text blocks.
+Call Web1.PostText to send the request.
+Handle API Response:
+Use the when Web1.GotText event:
+Drag the when Web1.GotText block.
+Check responseCode:
+If = 200 (success):
+Parse responseContent (JSON) using Web1.JsonTextDecode to get idToken and localId.
+Show Notifier1.ShowAlert with "Login Successful: " + localId (user ID).
+(Optional) Store idToken in a variable for authenticated requests.
+Else (error):
+Parse responseContent to extract the error message (e.g., "error":"INVALID_PASSWORD").
+Show Notifier1.ShowAlert with "Login Failed: " + responseContent.
+Step 4: Test the Project
+Register a Test User:
+In Firebase Console, manually add a user under "Authentication" > "Users" (added wserkac103@gmail.com password !Trener!).
+Run the App:
+Connect via the AI2 Companion app or emulator.
+Enter the test email and password, click "Login," and verify the Notifier shows success or an error.
